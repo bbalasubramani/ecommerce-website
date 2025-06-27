@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern E-Commerce</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <button id="darkModeToggle" class="dark-mode-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-store"></i> ShopNest
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Deals</a></li>
+                </ul>
+                <div class="icons">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                    <button class="wishlist-btn">
+                        <i class="fas fa-heart"></i>
+                        <span class="cart-count wishlist-count">0</span>
+                    </button>
+                    <button id="cartBtn" class="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-text">
+                <h1>Summer Collection 2025</h1>
+                <p>Discover amazing deals on our premium products with discounts up to 70%</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">Shop Now</button>
+                    <button class="btn btn-outline">Learn More</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Featured Product">
+            </div>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="container">
+            <div class="categories-scroll">
+                <button class="category-btn active" data-category="all">All Products</button>
+                <button class="category-btn" data-category="electronics">Electronics</button>
+                <button class="category-btn" data-category="clothing">Clothing</button>
+                <button class="category-btn" data-category="home">Home & Garden</button>
+                <button class="category-btn" data-category="beauty">Beauty</button>
+                <button class="category-btn" data-category="sports">Sports</button>
+                <button class="category-btn" data-category="books">Books</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="main-container">
+            <aside class="filters">
+                <h2>Filters</h2>
+                <div class="filter-section">
+                    <h3>Price Range</h3>
+                    <div class="price-inputs">
+                        <input type="number" id="minPrice" placeholder="Min">
+                        <span>-</span>
+                        <input type="number" id="maxPrice" placeholder="Max">
+                    </div>
+                    <input type="range" id="priceRange" min="0" max="1000" value="1000">
+                </div>
+                <div class="filter-section">
+                    <h3>Categories</h3>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="category-filter" value="electronics"> Electronics
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="category-filter" value="clothing"> Clothing
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="category-filter" value="home"> Home & Garden
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="category-filter" value="beauty"> Beauty
+                        </label>
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <h3>Rating</h3>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="rating-filter" value="5">
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="rating-filter" value="4">
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="rating-filter" value="3">
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <button id="applyFilters" class="btn btn-primary">Apply Filters</button>
+                <button id="resetFilters" class="btn btn-outline">Reset</button>
+            </aside>
+
+            <div class="products-container">
+                <div class="products-header">
+                    <h2>Featured Products</h2>
+                    <select class="sort-select" id="sortSelect">
+                        <option value="recommended">Recommended</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="newest">Newest</option>
+                        <option value="rating">Top Rated</option>
+                    </select>
+                </div>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be loaded here -->
+        </div>
+        <div class="cart-total">
+            <h3>Total: <span id="cartTotal">₹0.00</span></h3>
+            <button class="btn btn-primary checkout-btn">Checkout</button>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <footer>
+        <p>&copy; 2025 ShopNest. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

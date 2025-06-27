@@ -1,0 +1,22 @@
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Handle line endings for specific file types
+*.html text
+*.css text
+*.js text
+*.json text
+*.md text
+*.svg text
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+
+# Ensure shell scripts retain LF line endings (for bash users)
+*.sh text eol=lf
+
+# Mark README for easier repository stats and linguist classification
+README.md linguist-documentation
